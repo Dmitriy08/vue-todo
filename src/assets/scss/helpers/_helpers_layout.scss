@@ -1,0 +1,51 @@
+
+//.fs-XX { font-size: XXpx }
+@each $value in $font-size-helpers {
+  .fs-#{$value} {
+    font-size: #{$value}px;
+  }
+}
+
+
+.align-items-center{
+  align-items: center;
+}
+
+[class*='divider-'] {
+  width: 100%;
+  clear: both;
+  &:last-child {
+    order: 10000;
+  }
+}
+
+.container-px-44{
+  .container{
+    padding-left: 44px;
+    padding-right: 44px;
+  }
+}
+
+.row-bordered{
+  .container{
+    position: relative;
+
+    &::before, &::after{
+      content: '';
+      position: absolute;
+      top: -100%;
+      bottom: -100%;
+      left: 0;
+      width: 10px;
+      background: $lightColor;
+    }
+    &::after{
+      right: 0;
+      left: auto;
+    }
+  }
+}
+
+.page_footer{
+  overflow: hidden;
+}

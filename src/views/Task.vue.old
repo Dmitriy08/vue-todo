@@ -1,0 +1,90 @@
+<template>
+  <div>
+    <section class="s-pt-50">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="form-wrap" v-if="(task === undefined) || flagEdit">
+              <form class="form" @submit.prevent="saveHandler()">
+                <button class="btn btn_maincolor" type="submit">Save Task</button>
+                <div class="divider-60"></div>
+                <div class="form-input">
+                  <label for="title">Task Title</label>
+                  <input id="title" v-model="title" type="text" placeholder="Task title" required>
+                </div>
+              </form>
+              <div class="divider-60"></div>
+              <form class="form" @submit.prevent="addTodo">
+                <div class="form-input">
+                  <label for="todo">Todo Title</label>
+                  <input id="todo" v-model="todosTitle" type="text" placeholder="Todo title" required>
+                  <button class="btn btn_maincolor" type="submit">Add Todo</button>
+                </div>
+              </form>
+              <h4>{{ todosLocal }}</h4>
+            </div>
+            <div class="" v-else>
+              <button class="btn btn_maincolor" @click="editTask()">Edit Task</button>
+              <div class="divider-60"></div>
+              <div class="">
+                <h4>{{ task.title }}</h4>
+                <h4>{{ todosStore }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+
+<script>
+export default {
+  data: () => ({
+    title: '',
+    flagEdit: false,
+    todosTitle: '',
+    todosLocal: []
+  }),
+  computed: {
+    task() {
+      return this.$store.getters.taskById(+this.$route.params.id)
+    },
+    todosStore() {
+      return this.$store.getters.todosTaskById(+this.$route.params.id)
+    },
+
+  },
+  methods: {
+    saveHandler() {
+      if (!this.flagEdit) {
+        const task = {
+          id: +this.$route.params.id,
+          title: this.title,
+          todos: this.todosLocal
+        }
+        this.$store.dispatch('createTask', task)
+      } else {
+        this.$store.dispatch('updateTask', {
+          id: this.task.id,
+          title: this.title,
+          todos: this.todosLocal
+        })
+        this.flagEdit = false
+      }
+    },
+    editTask() {
+      this.title = this.task.title
+      this.flagEdit = true
+    },
+    addTodo(){
+      const todo = {
+        id: Date.now(),
+        title: this.todosTitle,
+      }
+      this.todosLocal.push(todo)
+    }
+  }
+}
+</script>
