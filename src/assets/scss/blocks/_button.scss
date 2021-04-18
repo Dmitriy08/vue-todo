@@ -1,12 +1,25 @@
-.btn{
+.btn {
   font-family: $fontHeaders;
   font-size: 16px;
   letter-spacing: 1px;
-  padding: 7px 12px 3px;
+  padding: 12px 15px 8px;
   display: inline-block;
   border: 1px solid $colorMain;
-  &_maincolor{
+  cursor: pointer;
+  border-radius: 10px;
+
+  &_maincolor {
     background: $colorMain;
     color: $lightColor;
+  }
+
+  &_maincolor2 {
+    background: $colorMain2;
+    color: $lightColor;
+    border-color: $colorMain2;
+  }
+
+  & + .btn {
+    margin-left: 5px;
   }
 }

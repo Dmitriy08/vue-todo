@@ -24,4 +24,16 @@
       color: $colorMain;
     }
   }
+
+  .btn_maincolor2{
+    background: $colorMain2;
+    color: $lightColor;
+    &:hover{
+      background: $lightColor;
+      color: $colorMain2;
+    }
+  }
+  &.ms{
+    background: $greyColor;
+  }
 }

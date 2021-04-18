@@ -1,0 +1,18 @@
+.form{
+  .form-input{
+    display: flex;
+    label{
+      display: none;
+    }
+    input{
+      font-size: 20px;
+      width: 100%;
+      padding: 10px 0;
+      border: none;
+      border-bottom: 1px solid $colorMain ;
+      & +.btn{
+        margin-left: 50px;
+      }
+    }
+  }
+}

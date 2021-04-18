@@ -10,12 +10,9 @@
     color: $lightColor;
   }
   a{
-    color: $colorMain2;
+    color: $colorMain;
     &:hover{
       color: $fontColor;
     }
-  }
-  &.cs3{
-    background: $colorMain3;
   }
 }

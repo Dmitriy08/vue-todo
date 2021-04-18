@@ -4,18 +4,17 @@
 
 //Variables For Color
 $colorMain: var(--colorMain);
+
 $colorMain2: var(--colorMain2);
-$colorMain3: var(--colorMain3);
 
 $fontColor: var(--fontColor);
 
 $lightColor: var(--lightColor);
-$lightColorRGBA: var(--lightColorRGBA);
+
+$darkColor: var(--darkColor);
 
 $greyColor: var(--greyColor);
-$greyColorRGBA: var(--greyColorRGBA);
 
-$borderColor: var(--borderColor);
 
 
 //Variables For Grid
@@ -45,7 +44,7 @@ $section-vertical-padding: 20 35 40 45 50;
 
 $font-size-helpers: 28;
 
-$dividers-height: 20;
+$dividers-height: 20 30 60;
 
 $columns-vertical-margins: 0 20 40;
 
