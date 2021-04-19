@@ -9,7 +9,7 @@
         <input v-if="flagEdit" v-model="todo.title" type="text"/>
       </div>
     </div>
-    <button class="btn btn_maincolor" v-if="flagEdit" @click="todoEdit = !todoEdit">Edit</button>
+    <button class="btn btn_maincolor" v-if="flagEdit" @click="todoEdit = !todoEdit">{{ todoEdit ? 'Done' : 'Edit' }}</button>
     <button class="btn btn_maincolor2" v-if="flagEdit" @click="$emit('delete-todo', todo.id)">Delete</button>
   </li>
 </template>

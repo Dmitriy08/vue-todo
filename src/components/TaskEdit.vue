@@ -5,11 +5,12 @@
           class="btn btn_maincolor"
           type="button"
           @click="$emit('undo')"
+          :disabled="!(historyIndex > 0)"
       >Undo</button>
       <button
           class="btn btn_maincolor ml-20"
           @click="$emit('redo')"
-
+          :disabled="!(historyIndex < (taskHistory.length - 1))"
           type="button"
 
       >Redo</button>
@@ -45,7 +46,7 @@
 <script>
 import TodoList from '../components/TodoList'
 export default {
-  props: ['task', 'newTask'],
+  props: ['task', 'newTask', 'taskHistory', 'historyIndex'],
   components: {
     TodoList
   },

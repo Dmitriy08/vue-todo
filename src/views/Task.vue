@@ -14,6 +14,8 @@
             <TaskEdit
                 v-bind:task="task"
                 v-bind:newTask="newTask"
+                v-bind:taskHistory="taskHistory"
+                v-bind:historyIndex="historyIndex"
                 @undo="undo"
                 @redo="redo"
                 @flagFalse="flagFalse"
@@ -70,9 +72,6 @@ export default {
         if (task === undefined) {
           task = this.newT
         }
-        if (Object.keys(this.historyTask).length) {
-          task = this.taskHistory[this.historyIndex]
-        }
         return task
       },
       set: function (val) {
@@ -103,14 +102,16 @@ export default {
       this.watching = false;
       if (this.historyIndex > 0) {
         this.historyIndex -= 1;
-        this.task = this.taskHistory[this.historyIndex];
+        this.task.title = this.taskHistory[this.historyIndex].title;
+        this.task.todos = this.taskHistory[this.historyIndex].todos;
       }
     },
     redo() {
       this.watching = false;
       if (this.historyIndex < (this.taskHistory.length - 1)) {
         this.historyIndex += 1;
-        this.task = this.taskHistory[this.historyIndex];
+        this.task.title = this.taskHistory[this.historyIndex].title;
+        this.task.todos = this.taskHistory[this.historyIndex].todos;
       }
     },
     showModal(title){
