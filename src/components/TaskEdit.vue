@@ -12,7 +12,6 @@
           @click="$emit('redo')"
           :disabled="!(historyIndex < (taskHistory.length - 1))"
           type="button"
-
       >Redo</button>
       <button class="btn btn_maincolor2" type="submit">Save Task</button>
       <button
@@ -35,7 +34,8 @@
         <input id="todo"
                v-model:todosTitle="task.todos.todosTitle"
                type="text"
-               placeholder="Todo title" required>
+               placeholder="Todo title"
+               required>
         <button class="btn btn_maincolor" type="submit">Add Todo</button>
       </div>
     </form>

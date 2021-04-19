@@ -123,12 +123,11 @@ export default {
       this.modalTitle = ''
     },
     cancelEditTask(){
-      console.log(1111)
       this.showModal('Cancel edit task?');
       this.modalHandler = function () {
         this.$store.dispatch('cancelEditTask');
+        this.$router.push('/')
       }
-      this.$router.push('/')
     },
 
     editTask() {
